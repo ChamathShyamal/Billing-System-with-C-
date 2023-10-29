@@ -1,0 +1,534 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+//creating a stucture for view pacakage details//
+struct FitnessPacakageDetails {
+
+	string PacakageID;
+	char PacakageName[50];
+	char MembershipRate[50];
+	char IntroductoryRate[50];
+};
+
+struct FoodSupplementDetails {
+
+	string ItemCode;
+	char ItemName[50];
+	char ItemPrice[50];
+};
+
+struct FitnessEquipmentDetails {
+
+	string EquipmentID;
+	char EquipmentName[50];
+	char EquipmentPrice[500];
+};
+
+
+
+//main funcion of the system//
+void main() {
+
+	string AdminID, CashierID, LoginCredentials;
+	int AdminPassword, CashierPassword, Invoice_Number, count;
+	char Customer_Name[200], Date[50], Time[50];
+
+
+		cout << "Press A for AdminLogin or Press C for CashierLogin : ";
+		cin >> LoginCredentials;
+
+			if (LoginCredentials == "A")
+			{
+				cout << "Enter Admin's ID : ";
+				cin >> AdminID;
+				cout << "Enter Admin's Password: ";
+				cin >> AdminPassword;
+			}
+			else if (LoginCredentials == "C")
+			{
+				cout << "Enter Cashier's ID : ";
+				cin >> CashierID;
+				cout << "Enter Cashier's Password : ";
+				cin >> CashierPassword;
+
+			}
+			else
+				{
+					cout << "\n You have entered invalid login credential ! \n" << endl;
+				}
+		
+		//displaying welcome statement if condition is true//
+		if (AdminID == "Admin" && AdminPassword == 123 || CashierID == "Cashier" && CashierPassword == 100)
+		{
+			cout << "\n\n\n\t\t***************************************************";
+			cout << "\n\t\t      WELCOME TO RATHNAYAKA GYM'S MAIN MENU !               " << endl;
+			cout << "\t\t*************************************************** \n";
+		}
+		//displyaing erroer message if condition is false//
+		else
+		{
+			{
+				cout << "\n You have entered INCORRECT ID or PASSWORD !!! \n ";
+				exit(0);
+			}
+		}
+
+	
+
+
+	//displaying options containing statement to select an option//
+	cout << "\n1) View Fitness Package Details" << endl << "2) View Food Supplement Details" << endl
+		<< "3) View Fitness Equipment Details" << endl << "4) Calcuate Bill" << endl;
+
+	//switch case statement for selecting a option//
+	int option;
+	cout << "\n Insert 1 to view Fitness Package Details \n\t\t|OR|\n " << "Insert 2 to view Food Supplemet Details \n\t\t|OR|\n " << "Insert 3 to view Fitness Equipment Details \n\t\t|OR|\n " << "Insert 4 to Calculate Bill \n\n:";
+	cin >> option;
+
+	cout << "\n";
+
+	//code to be executed if option equals to 1//
+	if (option == 1) {
+
+		//View Fitness Package Details//
+		struct FitnessPacakageDetails fpd1 = { "PKGDT001","DAY WORKOUT","Rs. 1500","Rs. 1500" };
+		struct FitnessPacakageDetails fpd2 = { "PKGDT002","EXECUTIVE MEM (FUL)","Rs. 5500","Rs. 5500" };
+		struct FitnessPacakageDetails fpd3 = { "PKGDT003","1 MONTH MEMBERSHIP","Rs. 3000","Rs. 3000" };
+		struct FitnessPacakageDetails fpd4 = { "PKGDT004","MASTERS MEMBERSHIP OVER 60 YEARS","Rs. 5000","Rs. 5000" };
+		struct FitnessPacakageDetails fpd5 = { "PKGDT005","NON-PEAK EXECUTIVE","Rs. 3300","Rs. 3300" };
+
+		cout << "=====================================================";
+		cout << "\nPackage ID      :" << fpd1.PacakageID << endl;
+		cout << "Package Name      :" << fpd1.PacakageName << endl;
+		cout << "Membership Rate   :" << fpd1.MembershipRate << endl;
+		cout << "Introductory Rate :" << fpd1.IntroductoryRate << endl;
+
+		cout << "=====================================================";
+		cout << "\nPackage ID      :" << fpd2.PacakageID << endl;
+		cout << "Package Name      :" << fpd2.PacakageName << endl;
+		cout << "Membership Rate   :" << fpd2.MembershipRate << endl;
+		cout << "Introductory Rate :" << fpd2.IntroductoryRate << endl;
+
+		cout << "=====================================================";
+		cout << "\nPackage ID      :" << fpd3.PacakageID << endl;
+		cout << "Package Name      :" << fpd3.PacakageName << endl;
+		cout << "Membership Rate   :" << fpd3.MembershipRate << endl;
+		cout << "Introductory Rate :" << fpd3.IntroductoryRate << endl;
+
+		cout << "=====================================================";
+		cout << "\nPackage ID      :" << fpd4.PacakageID << endl;
+		cout << "Package Name      :" << fpd4.PacakageName << endl;
+		cout << "Membership Rate   :" << fpd4.MembershipRate << endl;
+		cout << "Introductory Rate :" << fpd4.IntroductoryRate << endl;
+
+		cout << "=====================================================";
+		cout << "\nPackage ID      :" << fpd5.PacakageID << endl;
+		cout << "Package Name      :" << fpd5.PacakageName << endl;
+		cout << "Membership Rate   :" << fpd5.MembershipRate << endl;
+		cout << "Introductory Rate :" << fpd5.IntroductoryRate << endl;
+		cout << "=====================================================\n";
+	}
+
+	//code to be executed if option equals to 2//
+	else if (option == 2) {
+
+		//View Food Supplement Details//
+		struct FoodSupplementDetails fsd1 = { "ITMP001","PLATINUM 100 % CREATINE","Rs. 4000" };
+		struct FoodSupplementDetails fsd2 = { "ITMB002","BEAST AMINOLYTES","Rs. 6000" };
+		struct FoodSupplementDetails fsd3 = { "ITMB003","BEAST SUPER SAUNA","Rs. 6000" };
+		struct FoodSupplementDetails fsd4 = { "ITMF004","ON FISH OIL (100 SOFT-GELS)","Rs. 3500" };
+		struct FoodSupplementDetails fsd5 = { "ITMC005","CREATINE 5000 (60 SERVINGS)","Rs. 3000" };
+		struct FoodSupplementDetails fsd6 = { "ITMS006","D-STUNNER ALPHA 30 SERVINGS","Rs. 6500" };
+		struct FoodSupplementDetails fsd7 = { "ITMG007","GOLD STANDARD GAINER 10LBS","Rs. 20000" };
+
+		cout << "================================================";
+		cout << "\nItem Code         :" << fsd1.ItemCode << endl;
+		cout << "Item Name         :" << fsd1.ItemName << endl;
+		cout << "Item Price        :" << fsd1.ItemPrice << endl;
+
+		cout << "================================================";
+		cout << "\nItem Code         :" << fsd2.ItemCode << endl;
+		cout << "Item Name         :" << fsd2.ItemName << endl;
+		cout << "Item Price        :" << fsd2.ItemPrice << endl;
+
+		cout << "================================================";
+		cout << "\nItem Code         :" << fsd3.ItemCode << endl;
+		cout << "Item Name         :" << fsd3.ItemName << endl;
+		cout << "Item Price        :" << fsd3.ItemPrice << endl;
+
+		cout << "================================================";
+		cout << "\nItem Code         :" << fsd4.ItemCode << endl;
+		cout << "Item Name         :" << fsd4.ItemName << endl;
+		cout << "Item Price        :" << fsd4.ItemPrice << endl;
+
+		cout << "================================================";
+		cout << "\nItem Code         :" << fsd5.ItemCode << endl;
+		cout << "Item Name         :" << fsd5.ItemName << endl;
+		cout << "Item Price        :" << fsd5.ItemPrice << endl;
+
+		cout << "================================================";
+		cout << "\nItem Code         :" << fsd6.ItemCode << endl;
+		cout << "Item Name         :" << fsd6.ItemName << endl;
+		cout << "Item Price        :" << fsd6.ItemPrice << endl;
+
+		cout << "================================================";
+		cout << "\nItem Code         :" << fsd7.ItemCode << endl;
+		cout << "Item Name         :" << fsd7.ItemName << endl;
+		cout << "Item Price        :" << fsd7.ItemPrice << endl;
+		cout << "================================================\n";
+
+	}
+
+	else if (option == 3) {
+
+		//View Fitness Equipment Details//
+		struct FitnessEquipmentDetails fed1 = { "EQPT001","DUMBBEL","Rs. 1000" };
+		struct FitnessEquipmentDetails fed2 = { "EQPT002","BARBELL","Rs. 2000" };
+		struct FitnessEquipmentDetails fed3 = { "EQPT003","ADJUSTABLE WEIGHT BENCH","Rs. 20000" };
+		struct FitnessEquipmentDetails fed4 = { "EQPT004","ELLIPTICAL MACHINE","Rs. 50000" };
+		struct FitnessEquipmentDetails fed5 = { "EQPT005","STABILITY BALL","Rs. 3000" };
+		struct FitnessEquipmentDetails fed6 = { "EQPT006","LEATHER GLOVES","Rs. 800" };
+		struct FitnessEquipmentDetails fed7 = { "EQPT007","SLIMMING BELT","Rs.750" };
+
+		cout << "===============================================";
+		cout << "\nEquipment Code         :" << fed1.EquipmentID << endl;
+		cout << "Equipment Name         :" << fed1.EquipmentName << endl;
+		cout << "Equipment Price        :" << fed1.EquipmentPrice << endl;
+
+		cout << "===============================================";
+		cout << "\nEquipment Code         :" << fed2.EquipmentID << endl;
+		cout << "Equipment Name         :" << fed2.EquipmentName << endl;
+		cout << "Equipment Price        :" << fed2.EquipmentPrice << endl;
+
+		cout << "===============================================";
+		cout << "\nEquipment Code         :" << fed3.EquipmentID << endl;
+		cout << "Equipment Name         :" << fed3.EquipmentName << endl;
+		cout << "Equipment Price        :" << fed3.EquipmentPrice << endl;
+
+		cout << "===============================================";
+		cout << "\nEquipment Code         :" << fed4.EquipmentID << endl;
+		cout << "Equipment Name         :" << fed4.EquipmentName << endl;
+		cout << "Equipment Price        :" << fed4.EquipmentPrice << endl;
+
+		cout << "===============================================";
+		cout << "\nEquipment Code         :" << fed5.EquipmentID << endl;
+		cout << "Equipment Name         :" << fed5.EquipmentName << endl;
+		cout << "Equipment Price        :" << fed5.EquipmentPrice << endl;
+
+		cout << "===============================================";
+		cout << "\nEquipment Code         :" << fed6.EquipmentID << endl;
+		cout << "Equipment Name         :" << fed6.EquipmentName << endl;
+		cout << "Equipment Price        :" << fed6.EquipmentPrice << endl;
+
+		cout << "===============================================";
+		cout << "\nEquipment Code         :" << fed7.EquipmentID << endl;
+		cout << "Equipment Name         :" << fed7.EquipmentName << endl;
+		cout << "Equipment Price        :" << fed7.EquipmentPrice << endl;
+		cout << "===============================================\n";
+
+	}
+
+	//code to be executed if option equals to 3//
+	//To Calculate Bill//
+	else if (option == 4) {
+
+		int foodSupplement;
+		int noOfFoodSupplements;
+
+
+		int fitnessPackage;
+
+		int fitnessEquipment;
+		int noOfFitnessEquipments;
+
+
+		double ITMP001 = 4000.00;
+		double ITMB002 = 6000.00;
+		double ITMB003 = 6000.00;
+		double ITMF004 = 3500.00;
+		double ITMC005 = 3000.00;
+		double ITMS006 = 6500.00;
+		double ITMG007 = 20000.00;
+
+		double AmountOfSaleITMP001 = 0;
+		double AmountOfSaleITMB002 = 0;
+		double AmountOfSaleITMB003 = 0;
+		double AmountOfSaleITMF004 = 0;
+		double AmountOfSaleITMC005 = 0;
+		double AmountOfSaleITMS006 = 0;
+		double AmountOfSaleITMG007 = 0;
+
+
+		double PKGDT001 = 1500.00;
+		double PKGDT002 = 5500.00;
+		double PKGDT003 = 3000.00;
+		double PKGDT004 = 5000.00;
+		double PKGDT005 = 3300.00;
+
+		double AmountOfSalePKGDT001 = 0;
+		double AmountOfSalePKGDT002 = 0;
+		double AmountOfSalePKGDT003 = 0;
+		double AmountOfSalePKGDT004 = 0;
+		double AmountOfSalePKGDT005 = 0;
+
+
+		double EQPT001 = 1000.00;
+		double EQPT002 = 2000.00;
+		double EQPT003 = 20000.00;
+		double EQPT004 = 50000.00;
+		double EQPT005 = 3000.00;
+		double EQPT006 = 800.00;
+		double EQPT007 = 750.00;
+
+		double AmountOfSaleEQPT001 = 0;
+		double AmountOfSaleEQPT002 = 0;
+		double AmountOfSaleEQPT003 = 0;
+		double AmountOfSaleEQPT004 = 0;
+		double AmountOfSaleEQPT005 = 0;
+		double AmountOfSaleEQPT006 = 0;
+		double AmountOfSaleEQPT007 = 0;
+
+
+		double cash;
+		double discount = 0;
+		double total = 0;
+		string payment_type;
+
+		cout << "\n\t\t***************************************************";
+		cout << "\n\t\t       This is RATHNAYAKA GYM'S Cashiering                 " << endl;
+		cout << "\t\t*************************************************** \n";
+
+		cout << "\nFOOD SUPPLEMENTS\n" << endl;
+
+
+		cout << " [0] No Supplement !\n [1] ITMP001.....PricePerOne 4000.00\n [2] ITMB002.....PricePerOne 6000.00\n [3] ITMB003.....PricePerOne 6000.00\n [4] ITMF004.....PricePerOne 3500.00\n [5] ITMC005.....PricePerOne 3500.00\n [6] ITMS006.....PricePerOne 6500.00\n [7] ITMG007.....PricePerOne 20000.00\n" << endl;
+
+
+		cout << "What is the selected supplement:";
+		cin >> foodSupplement;
+
+		if (foodSupplement != 0) {
+			cout << "How many supplements: ";
+			cin >> noOfFoodSupplements;
+		}
+
+
+		cout << "\nFITNESS PACKAGES \n" << endl;
+
+		cout << " [0] No Fitness Package !\n [1] PKGDT001.....PricePerOne 1500.00\n [2] PKGDT002.....PricePerOne 5500.00\n [3] PKGDT003.....PricePerOne 3000.00\n [4] PKGDT004.....PricePerOne 5000.00\n [5] PKGDT005.....PricePerOne 3300.00\n" << endl;
+
+
+		cout << "What is the selected fitness package:";
+		cin >> fitnessPackage;
+
+
+		cout << "\nFITNESS EQUIPMENTS\n" << endl;
+
+		cout << " [0] No Fitness Equipment !\n [1] EQPT001.....PricePerOne 1000.00\n [2] EQPT002.....PricePerOne 2000.00\n [3] EQPT003.....PricePerOne 20000.00\n [4] EQPT004.....PricePerOne 50000.00\n [5] EQPT005.....PricePerOne 3000.00\n [6] EQPT006.....PricePerOne 800.00\n [7] EQPT007.....PricePerOne 750.00" << endl;
+
+
+		cout << "\nWhat is the selected fitness equipment:";
+		cin >> fitnessEquipment;
+
+		if (fitnessEquipment != 0) {
+			cout << "How many equipments: ";
+			cin >> noOfFitnessEquipments;
+		}
+
+
+		cout << "\nEnter the Invoice Number here: ";
+		cin >> Invoice_Number;
+		cout << "Enter Customer's Name: ";
+		cin >> Customer_Name;
+		cout << "Enter the Date as (DD/MM/YYYY) here: ";
+		cin >> Date;
+		cout << "Enter the Current Time as (HH:MM) here: ";
+		cin >> Time;
+
+		cout << "\n=================================================================================================================";
+		cout << "\t\t                                                                         RATHNAYAKA GYMS";
+		cout << "\n Invoice Number: " << Invoice_Number << "\t\t                                                 Beyond Fitness" << "\n Customer's Name: " << Customer_Name << "\n Date of issuing this bill: " << Date << "\n Time of issuing this bill: " << Time << "\n" << endl;
+
+
+		cout << "*************** ITEMS ORDERED ****************\n" << endl;
+
+
+		switch (foodSupplement)
+		{
+
+		case 0:
+			cout << " No Supplement Bought" << "\n";
+			break;
+
+
+		case 1:
+			cout << " ITMP001.....PricePerOne 4000.00 X " << noOfFoodSupplements << " = " << noOfFoodSupplements * ITMP001 << "\n";
+			AmountOfSaleITMP001 = noOfFoodSupplements * ITMP001;
+			break;
+
+
+		case 2:
+			cout << " ITMB002.....PricePerOne 6000.00 X " << noOfFoodSupplements << " = " << noOfFoodSupplements * ITMB002 << "\n";
+			AmountOfSaleITMB002 = noOfFoodSupplements * ITMB002;
+			break;
+
+
+		case 3:
+			cout << " ITMB003.....PricePerOne 6000.00 X " << noOfFoodSupplements << " = " << noOfFoodSupplements * ITMB003 << "\n";
+			AmountOfSaleITMB003 = noOfFoodSupplements * ITMB003;
+			break;
+
+
+		case 4:
+			cout << " ITMF004.....PricePerOne 3500.00 X " << noOfFoodSupplements << " = " << noOfFoodSupplements * ITMF004 << "\n";
+			AmountOfSaleITMF004 = noOfFoodSupplements * ITMF004;
+			break;
+
+
+		case 5:
+			cout << " ITMC005.....PricePerOne 3500.00 X " << noOfFoodSupplements << " = " << noOfFoodSupplements * ITMC005 << "\n";
+			AmountOfSaleITMC005 = noOfFoodSupplements * ITMC005;
+			break;
+
+
+		case 6:
+			cout << " ITMS006.....PricePerOne 6500.00 X " << noOfFoodSupplements << " = " << noOfFoodSupplements * ITMS006 << "\n";
+			AmountOfSaleITMS006 = noOfFoodSupplements * ITMS006;
+			break;
+
+
+		case 7:
+			cout << " ITMG007.....PricePerOne 20000.00 X " << noOfFoodSupplements << " = " << noOfFoodSupplements * ITMG007 << "\n";
+			AmountOfSaleITMG007 = noOfFoodSupplements * ITMG007;
+			break;
+
+		}
+
+
+		{
+			switch (fitnessPackage)
+			{
+
+			case 0:
+				cout << " No Any Fitness Package Selected" << endl;
+				break;
+
+			case 1:
+				cout << " PKGDT001.....PricePerOne 1500.00" << endl;
+				AmountOfSalePKGDT001 = PKGDT001;
+				break;
+
+			case 2:
+				cout << " PKGDT002.....PricePerOne 5500.00" << endl;
+				AmountOfSalePKGDT002 = PKGDT002;
+				break;
+
+			case 3:
+				cout << " PKGDT003.....PricePerOne 3000.00" << endl;
+				AmountOfSalePKGDT003 = PKGDT003;
+				break;
+
+			case 4:
+				cout << " PKGDT004.....PricePerOne 5000.00" << endl;
+				AmountOfSalePKGDT004 = PKGDT004;
+				break;
+
+			case 5:
+				cout << " PKGDT005.....PricePerOne 3300.00" << endl;
+				AmountOfSalePKGDT005 = PKGDT005;
+				break;
+			}
+
+
+			{
+
+				switch (fitnessEquipment)
+				{
+
+				case 0:
+					cout << " No Equipment Bought" << "\n";
+					break;
+
+
+				case 1:
+					cout << " EQPT001.....PricePerOne 1000.00 X " << noOfFitnessEquipments << " = " << noOfFitnessEquipments * EQPT001 << "\n";
+					AmountOfSaleEQPT001 = noOfFitnessEquipments * EQPT001;
+					break;
+
+
+				case 2:
+					cout << " EQPT002.....PricePerOne 2000.00 X " << noOfFitnessEquipments << " = " << noOfFitnessEquipments * EQPT002 << "\n";
+					AmountOfSaleEQPT002 = noOfFitnessEquipments * EQPT002;
+					break;
+
+
+				case 3:
+					cout << " EQPT003.....PricePerOne 20000.00 X " << noOfFitnessEquipments << " = " << noOfFitnessEquipments * EQPT003 << "\n";
+					AmountOfSaleEQPT003 = noOfFitnessEquipments * EQPT003;
+					break;
+
+
+				case 4:
+					cout << " EQPT004.....PricePerOne 50000.00 X " << noOfFitnessEquipments << " = " << noOfFitnessEquipments * EQPT004 << "\n";
+					AmountOfSaleEQPT004 = noOfFitnessEquipments * EQPT004;
+					break;
+
+
+				case 5:
+					cout << " EQPT005.....PricePerOne 3500.00 X " << noOfFitnessEquipments << " = " << noOfFitnessEquipments * EQPT005 << "\n";
+					AmountOfSaleEQPT005 = noOfFitnessEquipments * EQPT005;
+					break;
+
+
+				case 6:
+					cout << " EQPT006.....PricePerOne 6500.00 X " << noOfFitnessEquipments << " = " << noOfFitnessEquipments* EQPT006 << "\n";
+					AmountOfSaleEQPT006 = noOfFitnessEquipments * EQPT006;
+					break;
+
+
+				case 7:
+					cout << " EQPT007.....PricePerOne 20000.00 X " << noOfFitnessEquipments << " = " << noOfFitnessEquipments * EQPT007 << "\n";
+					AmountOfSaleEQPT007 = noOfFitnessEquipments * EQPT007;
+					break;
+
+				}
+			}
+
+			cout << "\n*************** PAYMENT SUMMARY ***************" << endl;
+			total = 0;
+			total = total + AmountOfSaleITMP001 + AmountOfSaleITMB002 + AmountOfSaleITMB003 + AmountOfSaleITMF004 + AmountOfSaleITMC005 + AmountOfSaleITMS006 + AmountOfSaleITMG007 + AmountOfSalePKGDT001 + AmountOfSalePKGDT002 + AmountOfSalePKGDT003 + AmountOfSalePKGDT004 + AmountOfSalePKGDT005 + AmountOfSaleEQPT001 + AmountOfSaleEQPT002 + AmountOfSaleEQPT003 + AmountOfSaleEQPT004 + AmountOfSaleEQPT005 + AmountOfSaleEQPT006 + AmountOfSaleEQPT007;
+			cout << "\nTotal Amount is: " << total << "\n";
+
+
+			discount = 0;
+			if (total>5000)
+			{
+				discount = total * 5 / 100;
+			}
+
+			cout << "Discount for your bill is: " << discount << "\n";
+			cout << "The Final Total Amount: " << total - discount << "\n";
+
+			cout << "Cash Amount: ";
+			cin >> cash;
+
+			cout << "Balance is: " << cash - (total - discount) << endl;
+
+			cout << "PaymentType: ";
+			cin >> payment_type;
+
+			cout << "\n\t\t                                   END OF THE BILL!                   " << endl;
+			cout << "\t\t                                   Rathnayaka GYMS                   " << endl;
+			cout << "\t\t               Branches - Kaduwela || Kottawa || Malabe || Avissawella                  " << endl;
+			cout << "\t\t                                THANK YOU & COME AGAIN!                  " << endl;
+			cout << "=================================================================================================================\n";
+		}
+	}
+	//code to be executed if option does't equal to any option//
+	else {
+		cout << "\nYou inserted an invalid option!" << endl;
+
+	}
+
+}
